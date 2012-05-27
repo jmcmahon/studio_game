@@ -1,5 +1,6 @@
 require_relative 'player'
 require_relative 'die'
+require_relative 'treasure_trove'
 
 module GameTurn
   def self.take_turn(player)
@@ -12,7 +13,10 @@ module GameTurn
       puts "#{player.name} was skipped."
     else
       player.w00t
-    end 
+    end
+    
+    treasure = TreasureTrove.random
+    puts "#{player.name} found a #{treasure.name} worth #{treasure.points} points." 
   end
 end
 
