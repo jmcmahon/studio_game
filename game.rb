@@ -34,6 +34,19 @@ class Game
 
       print_name_and_health(player)
     end
+    @players.each do |player|
+      puts "\n#{player.name}'s point totals:"
+      puts "#{player.points} grand total points"
+    end
+    puts "#{total_points} total points from treasures found"
+    
+    @players.sort.each do |player|
+      puts "\n#{player.name}'s point totals:"
+      player.each_found_treasure do |treasure|
+        puts "#{treasure.points} total #{treasure.name} points"
+      end
+      puts "#{player.points} grand total points"
+    end
   end
 
   def print_name_and_health(player)
@@ -47,6 +60,9 @@ class Game
       puts player
     end
     1.upto(rounds) do |round|
+      if block_given?
+        break if yield
+      end
       puts "\nRound #{round}:"
       @players.each do |player|
         GameTurn.take_turn(player)
@@ -58,6 +74,10 @@ class Game
     treasures.each do |treasure|
       puts "A #{treasure.name} is worth #{treasure.points} points"
     end
+  end
+  
+  def total_points
+    @players.reduce(0) { |sum, player| sum + player.points }
   end
 end
 
