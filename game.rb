@@ -20,7 +20,7 @@ class Game
 
     puts "\n#{strong_players.size} strong players:"
     strong_players.each do |player|
-      puts "#{player.name} (#{player.health})"
+      print_name_and_health(player)
     end
 
     puts "\n#{wimpy_players.size} wimpy players:"
@@ -30,16 +30,15 @@ class Game
 
     puts "\n#{@title} High Scores:"
     @players.sort.each do |player|
-      formatted_name = player.name.ljust(20, '.')
-
-      print_name_and_health(player)
+      puts high_score_entry(player)
     end
+
     @players.each do |player|
       puts "\n#{player.name}'s point totals:"
       puts "#{player.points} grand total points"
     end
     puts "#{total_points} total points from treasures found"
-    
+
     @players.sort.each do |player|
       puts "\n#{player.name}'s point totals:"
       player.each_found_treasure do |treasure|
@@ -51,6 +50,11 @@ class Game
 
   def print_name_and_health(player)
     puts "#{player.name} (#{player.health})"
+  end
+
+  def high_score_entry(player)
+    formatted_name = player.name.ljust(20, '.')
+    "#{formatted_name} #{player.score}"
   end
 
   def play(rounds)
@@ -75,9 +79,25 @@ class Game
       puts "A #{treasure.name} is worth #{treasure.points} points"
     end
   end
-  
+
   def total_points
     @players.reduce(0) { |sum, player| sum + player.points }
+  end
+
+  def load_players(from_file)
+    File.readlines(from_file).each do |line|
+      name, health = line.split(',')
+      player = Player.new(name, Integer(health))
+      add_player(player)
+    end
+  end
+  def save_high_scores(to_file="high_scores.txt")
+    File.open(to_file, "w") do |file|
+      file.puts "#{@title} High Scores:"
+      @players.sort.each do |player|
+        file.puts high_score_entry(player)
+      end
+    end
   end
 end
 
