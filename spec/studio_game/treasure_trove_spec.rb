@@ -1,4 +1,4 @@
-require_relative 'treasure_trove'
+require 'studio_game/treasure_trove'
 
 module StudioGame
 
