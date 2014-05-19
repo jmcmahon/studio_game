@@ -1,0 +1,100 @@
+movies
+movie
+movie.class
+movie.type
+current_time  = Time.new
+current_time.class
+my_favorite_movie = "Goonies"
+your_favorite_movie = my_favorite_movie
+my_favorite_movie.object_id
+your_favorite_movie.object_id
+my_favorite_movie[0] = 'L'
+my_favorite_moview
+my_favorite_movie
+your_favorite_movie
+movie = "Goonies"
+movie.length
+movie.reverse
+movie.center(30)
+movie.ljust(30, '.')
+rank = 8
+rank.to_s
+rank.to_f
+movie.center(30).ljust(30,'.')
+movie.just(30,'.')
+movie.ljust(30/2,'.')
+movie.ljust(30/2,'.') + movie.rjust(30/2, '.')
+movie.center(30,'.')
+rank * 2
+rank.*(2)
+movie.center(30 '.')
+"hello".center(20, '123')
+movie=""
+movie.empty?
+movie.start_with?("G")
+movie = "Ghostbusters"
+movie = "ghostbusters"
+title = movie.capitalize
+title.ljust(30, '.')
+title = movie.capitalize.ljust(30, '.')
+rank = 9
+"#{title} #{rank}"
+qui5
+name1 = "larry"
+name1.capitalize
+ri String#capitalize
+require 'find'
+Find.find('.') {|path| puts path}
+Find.find('/etc') {|path| puts path}
+Find.find('/etc/') {|path| puts path}
+books2 = %w(Blink, Freakonomics, Outliers)
+books.count
+books[1]
+books[3]
+books.size
+books = Array.new
+books << "Blink"
+books.pop 
+books.pop
+books << "Outliers"
+books.push "Freakonomics"
+books.shift
+books.join("and")
+books
+books = %w{ Blink, Freakonomics, Outliers}
+books.join(" and ")
+books.shuffle
+load 'die.rb'
+die = Die.new
+die.roll
+dquit
+lotto = [24, 13, 8,  65]
+lotto.select {|number| number > 20}
+lotto.reject {|number| number > 20}
+lotto.sort
+lotto.sort {|x,y| y <=> x}
+lotto.reduce {|sum, n| sum + n}
+lotto.reduce(:+)
+evens, odds = numbers.partition { |n| n.even?}
+evens, odds = lotto.partition { |n| n.even?}
+evens
+odds
+strings = %w|hello goodbye billy harry|
+strings.select {|s| s =~ /^b/}
+strings.sort {|a, b| a.length <=> b.length}
+strings.sort {|a, b| b.length <=> a.length}
+numbers = [24, 13, 8, 65]
+numbers.any? {|number| number > 20}
+numbers.select {|number| number > 20}
+numbers.select {|number| number > 20}.first
+numbers.detect {|number| number > 20}
+numbers.detect {|number| number > 8}
+m_numbers = numbers.map {|number| number * 2}
+:green
+:green.class
+quit
+require 'studio_game/game'
+game = StudioGame::Game.new("Knuckleheads")
+player = StudioGame::Player.new("Moe", 90)
+game.add_player(player)
+game.play(2)
